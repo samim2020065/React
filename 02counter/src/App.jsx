@@ -11,7 +11,10 @@ function App() {
     counter = counter + 1;
     if(counter>20)
       counter = 20;
-    setcounter(counter);
+    setcounter((prevcounter)=>
+      prevcounter+=1);
+    setcounter((prevcounter)=>
+      prevcounter+=1);
   }
   const removeValue = ()=>{
     //console.log("clicked "+counter);
