@@ -1,76 +1,75 @@
 import React from "react";
-import WomanThinkingImg from "../assets/woman-thinking.png";
-
+import WashIronImg from "../assets/wash-iron.png";
+import WashFoldImg from "../assets/wash-fold.png";
+import IronFoldImg from "../assets/iron-fold.png";
+import DryCleaningImg from "../assets/dry-cleaning.png";
+import EmergencyServiceImg from "../assets/emergency-service.png";
 
 const packages = [
-  {
-    title: "SINGLE SIZE",
-    subtitle: "Perfect for people who live alone",
-    features: ["2 loads per week", "up to 10 lbs per load"],
-    price: "10",
-    color: "white",
-  },
-  {
-    title: "COUPLES SIZE",
-    subtitle: "Perfect for couples size 3–6",
-    features: ["4 loads per week", "up to 12 lbs per load", "Special garments", "Pickup & drop off"],
-    price: "20",
-    color: "blue-50",
-  },
-  {
-    title: "FAMILY SIZE",
-    subtitle: "Perfect for families size 4–6",
-    features: ["6 loads per week", "up to 15 lbs per load", "Special garments", "Pickup & drop off", "Free detergent samples"],
-    price: "30",
-    color: "white",
-  },
-];
+    {
+      title: "Wash & Iron",
+      description:
+        "All your regular wear garments will be washed, steam ironed and neatly packed for delivery.",
+      img: WashIronImg,
+    },
+    {
+      title: "Wash & Fold",
+      description:
+        "Just in case you choose not to use our steam ironing services we will wash and fold them for you.",
+      img: WashFoldImg,
+    },
+    {
+      title: "Iron & Fold",
+      description:
+        "Get back your dirty clothes. Your clothes will be ironed and pressed to look the best for you.",
+      img: IronFoldImg,
+    },
+    {
+      title: "Dry Cleaning",
+      description:
+        "All your sensitive and special garments will be individually treated for any stains and dry cleaned.",
+      img: DryCleaningImg,
+    },
+    {
+      title: "Emergency Service",
+      description:
+        "You can use our emergency service to receive services easily and quickly in our machines using very safe.",
+      img: EmergencyServiceImg,
+    },
+  ];
 
-export default function Packages() {
-  return (
-    <section className="py-16 px-4 text-center">
-      <h2 className="text-blue-600 text-sm font-semibold">SERVICES</h2>
-      <h3 className="text-3xl font-bold my-4">Services & Packages</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8"  data-aos="zoom-in">
-        {packages.map((pkg, index) => (
-          <div
+  export default function Packages() {
+    return (
+      <section className="py-16 px-4 text-center">
+        <h2 className="text-blue-600 text-sm font-semibold">SERVICES</h2>
+        <h3 className="text-3xl font-bold my-4">Our Services</h3>
+  
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-7xl mx-auto mt-12 px-2">
+
+          {packages.map((pkg, index) => (
+            <div
             key={index}
-            className={`bg-${pkg.color} rounded-xl p-6 shadow-md flex flex-col justify-between transform hover:scale-105 transition duration-300 animate-fade`}
+            className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 w-full h-[420px] flex flex-col"
+            data-aos="fade-up"
           >
-            <div>
-              <h4 className="text-blue-600 font-bold text-lg mb-1">{pkg.title}</h4>
-              <p className="text-sm text-gray-600 mb-4">{pkg.subtitle}</p>
-              <ul className="text-left mb-4">
-                {pkg.features.map((f, i) => (
-                  <li key={i} className="mb-1 flex items-center">
-                    <span className="mr-2 text-blue-500">✔</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
+          
+              <img
+  src={pkg.img}
+  alt={pkg.title}
+  className="w-full h-40 object-cover rounded-t-2xl"
+/>
+<div className="p-6 flex flex-col justify-between flex-grow">
+  <h4 className="text-blue-600 font-bold text-lg mb-2">{pkg.title}</h4>
+  <p className="text-sm text-gray-700 mb-4">{pkg.description}</p>
+  <button className="bg-blue-100 hover:bg-blue-200 px-4 py-2 rounded-full font-semibold mt-auto">
+    Select Service
+  </button>
+</div>
+
             </div>
-            <div>
-              <p className="text-lg font-semibold mb-2">{pkg.price} dollars /per month</p>
-              <button className="bg-blue-100 hover:bg-blue-200 px-6 py-2 rounded-full font-semibold">
-                Choose
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="bg-blue-100 rounded-xl p-8 mt-16 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto" data-aos="flip-up">
-        <img
-          src={WomanThinkingImg} 
-          alt="Woman Thinking"
-          className="h-32 mb-4 md:mb-0"
-        />
-        <div>
-          <h4 className="text-2xl font-bold mb-2">Hard time deciding what’s best for you?</h4>
-          <button className="bg-white hover:bg-gray-100 px-6 py-2 rounded-full font-semibold">
-            Learn more
-          </button>
+          ))}
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
+  
